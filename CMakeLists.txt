@@ -1,6 +1,8 @@
 include("${COMMON_TOOL_ROOT}/cmake/utility/embedded.cmake")
 
 
+add_subdirectory(contrib/cortex_m4_freertos)
+
 # Header include target
 gen_intf_lib(
   TARGET
@@ -10,7 +12,7 @@ gen_intf_lib(
     ./SEGGER
     ./SEGGER/Syscalls
   EXPORT_DIR
-    "${PROJECT_BINARY_DIR}/Segger"
+    "${PROJECT_BINARY_DIR}/Aurora/Segger"
 )
 
 # Library target
@@ -26,5 +28,5 @@ gen_static_lib_variants(
   PRV_LIBRARIES
     segger_sys_view_intf
   EXPORT_DIR
-    "${PROJECT_BINARY_DIR}/Segger"
+    "${PROJECT_BINARY_DIR}/Aurora/Segger"
 )
