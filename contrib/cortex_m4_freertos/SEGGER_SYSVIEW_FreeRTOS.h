@@ -55,8 +55,11 @@ Notes:
   (1) Include this file at the end of FreeRTOSConfig.h
 */
 
+#if defined( EMBEDDED )
+
 #ifndef SYSVIEW_FREERTOS_H
 #define SYSVIEW_FREERTOS_H
+
 
 #include "SEGGER_SYSVIEW.h"
 
@@ -326,5 +329,7 @@ void SYSVIEW_SendTaskInfo (U32 TaskID, const char* sName, unsigned Prio, U32 Sta
 #endif
 
 #endif
+
+#endif  /* EMBEDDED */
 
 /*************************** End of file ****************************/
