@@ -23,6 +23,9 @@ Additionally, place these statements in the header:
 -------------------------------------------------*/
 #include "FreeRTOSConfig.h"
 
+/* Chimera Includes */
+#include <Chimera/system>
+
 /*-------------------------------------------------------------------------------
 Literal Constants
 -------------------------------------------------------------------------------*/
@@ -61,6 +64,11 @@ Literal Constants
 Constants
 -------------------------------------------------------------------------------*/
 extern const SEGGER_SYSVIEW_OS_API SYSVIEW_X_OS_TraceAPI;
+
+/*-------------------------------------------------------------------------------
+Static Data
+-------------------------------------------------------------------------------*/
+static Chimera::System::InterruptMask s_isr_mask;
 
 /*-------------------------------------------------------------------------------
 Public Functions
@@ -123,6 +131,17 @@ extern "C"
 
   void SEGGER_SYSVIEW_X_OnEventRecorded( unsigned NumBytes )
   {
+  }
+
+
+  void SEGGER_RTT_Lock_Prj()
+  {
+    s_isr_mask = Chimera::System::disableInterrupts();
+  }
+
+  void SEGGER_RTT_Unlock_Prj()
+  {
+    Chimera::System::enableInterrupts( s_isr_mask );
   }
 
 #ifdef __cplusplus
