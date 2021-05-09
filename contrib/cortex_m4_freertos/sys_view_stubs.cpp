@@ -50,7 +50,7 @@ Literal Constants
 
 // The lowest RAM address used for IDs (pointers)
 #ifndef SYSVIEW_RAM_BASE
-#define SYSVIEW_RAM_BASE ( 0x10000000 )
+#define SYSVIEW_RAM_BASE ( 0x20000000 )
 #endif
 
 // Register definitions common to all Cortex-M4 devices

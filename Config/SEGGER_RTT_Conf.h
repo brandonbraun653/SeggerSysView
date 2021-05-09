@@ -419,11 +419,13 @@ void OS_SIM_LeaveCriticalSection(void);
 *       RTT lock configuration fallback
 */
 #ifndef   SEGGER_RTT_LOCK
-  #define SEGGER_RTT_LOCK()                // Lock RTT (nestable)   (i.e. disable interrupts)
+    extern void SEGGER_RTT_Lock_Prj();
+    #define SEGGER_RTT_LOCK()     SEGGER_RTT_Lock_Prj
 #endif
 
 #ifndef   SEGGER_RTT_UNLOCK
-  #define SEGGER_RTT_UNLOCK()              // Unlock RTT (nestable) (i.e. enable previous interrupt lock state)
+    extern void SEGGER_RTT_Unlock_Prj();
+    #define SEGGER_RTT_UNLOCK()   SEGGER_RTT_Unlock_Prj
 #endif
 
 #endif
