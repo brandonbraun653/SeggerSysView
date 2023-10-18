@@ -11,6 +11,8 @@ gen_intf_lib(
     ./Config
     ./SEGGER
     ./SEGGER/Syscalls
+  INTF_LIBRARIES
+    project_intf_inc
   EXPORT_DIR
     "${PROJECT_BINARY_DIR}/Aurora/Segger"
 )

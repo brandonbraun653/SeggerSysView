@@ -15,7 +15,6 @@ gen_static_lib_variants(
   TARGET
     segger_sys_view_cortex_m4_freertos
   SOURCES
-    sys_view_stubs.cpp
     SEGGER_SYSVIEW_FreeRTOS.c
   PRV_INCLUDES
     ./
